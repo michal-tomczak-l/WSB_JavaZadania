@@ -4,17 +4,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Animal york = new Animal("york", "Cezar") ;
-        Animal sheepDog = new Animal ("sheep-dog", "Azor");
-        york.feed();
-        york.feed();
-        york.feed();
+
+        Human me = new Human("Michal", "Tomczak");
+        me.pet = new Animal("york","Azor" );
+        me.pet.feed();
+        me.pet.takeForAWalk();
+        me.pet.takeForAWalk();
+        me.pet.feed();
+        me.car = new Car("a3", "audi",2006);
 
 
-        sheepDog.takeForAWalk();
-        sheepDog.takeForAWalk();
-        sheepDog.takeForAWalk();
 
-        sheepDog.feed();
     }
 }
