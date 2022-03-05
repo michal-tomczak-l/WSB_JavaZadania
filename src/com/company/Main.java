@@ -13,15 +13,17 @@ public class Main {
 //        me.pet.takeForAWalk();
 //        me.pet.takeForAWalk();
 //        me.pet.feed();
-//        me.car = new Car("a3", "audi",2006);
-        me.setSalary(1500.50);
-        me.getSalary();
+          Car audi = new Car("a3", "audi",2006, 1999.99);
+//        me.setSalary(1500.50);
+//        me.getSalary();
         sleep(5000);
         me.getSalary();
         me.setSalary(1700.00);
-        me.getSalary();
-
-
+        me.setCar(audi);
+        me.setSalary(1000.00);
+        me.setCar(audi);
+        me.setSalary(200.00);
+        me.setCar(audi);
 
     }
 }

@@ -1,14 +1,14 @@
 package com.company;
 
-import java.sql.SQLOutput;
+
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class Human {
     public String firstName;
     public String lastName;
-    public Animal pet;
-    public Car car;
+
+    private Car car;
 
     private LocalDateTime lastDate;
     private Double salary;
@@ -47,4 +47,20 @@ public class Human {
 
     }
 
+    public Car getCar() {
+        return this.car;
+    }
+
+    public void setCar(Car car) {
+        if (salary > car.getValue()) {
+            System.out.println("Lets get it for cash");
+            this.car = car;
+        } else if (salary > car.getValue() / 2) {
+            System.out.println("Lets call to the bank, and get loan for the car");
+            this.car = car;
+        } else {
+            System.out.println("You are poor...");
+
+        }
+    }
 }
