@@ -14,4 +14,14 @@ public class Car {
     public Double getValue() {
         return value;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", producer='" + producer + '\'' +
+                ", year='" + year + '\'' +
+                ", value=" + value +
+                '}';
+    }
 }

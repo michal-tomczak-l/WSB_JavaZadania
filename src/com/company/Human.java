@@ -7,7 +7,7 @@ import java.time.temporal.ChronoUnit;
 public class Human {
     public String firstName;
     public String lastName;
-
+    public Animal pet;
     private Car car;
 
     private LocalDateTime lastDate;
@@ -62,5 +62,18 @@ public class Human {
             System.out.println("You are poor...");
 
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "firstName=" + firstName +
+                "lastName=" + lastName +
+                "pet=" + pet +
+                ", car=" + car +
+                ", lastChecked=" + lastDate +
+                ", previousSalaryValue=" + prevSalary +
+                ", salary=" + salary +
+                '}';
     }
 }

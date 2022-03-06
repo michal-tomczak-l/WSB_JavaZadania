@@ -11,9 +11,9 @@ public class Animal {
     public Animal(String species, String name) {
         this.name = name;
         this.species = species;
-        if (species.equals("sheep-dog")) {
+        if (species.equals("dog")) {
             this.weight = DEFAULT_SHEEPDOG_WEIGHT;
-        } else if (species.equals("york")) {
+        } else if (species.equals("cat")) {
             this.weight = DEFAULT_YORK_WEIGHT;
         } else {
             this.weight = DEFAULT_ANIMAL_WEIGHT;
@@ -40,5 +40,14 @@ public class Animal {
                 System.out.println("Zabiegałeś " + name + "a na śmierć!!! "   );
             }
         }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "species='" + species + '\'' +
+                ", weight=" + weight +
+                ", name=" + name +
+                '}';
+    }
 
     }
