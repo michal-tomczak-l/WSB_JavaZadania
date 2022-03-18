@@ -1,24 +1,43 @@
-package com.company;
+package com.company.creatures;
 
-public class Animal implements Sellable{
-    private static final Double DEFAULT_SHEEPDOG_WEIGHT = 2.0;
-    private static final Double DEFAULT_YORK_WEIGHT = 1.0;
+import com.company.Human;
+import com.company.Sellable;
+
+public abstract class Animal implements Sellable, Feedable {
+    private static final Double DEFAULT_DOG_WEIGHT = 2.0;
+    private static final Double DEFAULT_CAT_WEIGHT = 1.0;
     private static final Double DEFAULT_ANIMAL_WEIGHT = 1.5;
     final String species;
     private Double weight;
-    String name;
+    private Boolean isAlive;
+    private String name;
+
 
     public Animal(String species, String name) {
         this.name = name;
         this.species = species;
+        this.isAlive = true;
         if (species.equals("dog")) {
-            this.weight = DEFAULT_SHEEPDOG_WEIGHT;
+            this.weight = DEFAULT_DOG_WEIGHT;
         } else if (species.equals("cat")) {
-            this.weight = DEFAULT_YORK_WEIGHT;
+            this.weight = DEFAULT_CAT_WEIGHT;
         } else {
             this.weight = DEFAULT_ANIMAL_WEIGHT;
         }
 
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+    public Boolean getAlive() {
+        return isAlive;
+    }
+    public void setAlive(Boolean alive) {
+        isAlive = alive;
     }
 
     public void feed() {
@@ -30,6 +49,15 @@ public class Animal implements Sellable{
         } else if (this.weight <= 0) {
             System.out.println(name + " nie żyje :(... - ");
         }
+    }
+
+    public void feed(Double foodWeight) {
+        if(this.weight > 0) {
+            weight += foodWeight;
+            System.out.println("Getting fat :)) ");
+        }
+        else
+            System.out.println("YOU CANT FEED DEAD ANIMAL......");
     }
 
     public void takeForAWalk() {
