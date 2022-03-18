@@ -86,7 +86,7 @@ public abstract class Animal implements Sellable, Feedable {
         seller.setCash(seller.getCash() + price);
         seller.pet=null;
         buyer.pet = this;
-        System.out.println("Successful transaction! " + buyer.firstName.toString() + " bought " + this.name.toString() + " from " + seller.firstName.toString() + " for " + price.toString());
+        System.out.println("Successful transaction! " + buyer.firstName+ " bought " + this.name + " from " + seller.firstName + " for " + price.toString());
 
     }
     }
