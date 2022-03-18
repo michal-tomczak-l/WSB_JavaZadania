@@ -2,7 +2,7 @@ package com.company;
 
 
 import com.company.devices.Car;
-
+import com.company.devices.Device;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -15,8 +15,20 @@ public class Human {
     private LocalDateTime lastDate;
     private Double salary;
     private Double prevSalary;
-
-
+    private Double cash;
+    private Device device;
+    public Device getDevice() {
+        return device;
+    }
+    public void setDevice(Device device) {
+        this.device = device;
+ }
+    public Double getCash() {
+        return cash;
+ }
+    public void setCash(double cash) {
+        this.cash = cash;
+ }
     Human(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -76,6 +88,8 @@ public class Human {
                 ", lastChecked=" + lastDate +
                 ", previousSalaryValue=" + prevSalary +
                 ", salary=" + salary +
+                ", device=" + device +
+                ", cash=" + cash +
                 '}';
     }
 }

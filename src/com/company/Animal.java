@@ -1,6 +1,6 @@
 package com.company;
 
-public class Animal {
+public class Animal implements Sellable{
     private static final Double DEFAULT_SHEEPDOG_WEIGHT = 2.0;
     private static final Double DEFAULT_YORK_WEIGHT = 1.0;
     private static final Double DEFAULT_ANIMAL_WEIGHT = 1.5;
@@ -50,4 +50,15 @@ public class Animal {
                 '}';
     }
 
+    @Override
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        if (seller.pet != this) throw new Exception("Animal is out of seller stock...");
+        if (buyer.getCash() < price) throw new Exception("Animal is too expensive...");
+        buyer.setCash(buyer.getCash() - price);
+        seller.setCash(seller.getCash() + price);
+        seller.pet=null;
+        buyer.pet = this;
+        System.out.println("Successful transaction! " + buyer.firstName.toString() + " bought " + this.name.toString() + " from " + seller.firstName.toString() + " for " + price.toString());
+
+    }
     }
