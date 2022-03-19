@@ -1,7 +1,7 @@
 package com.company.devices;
 
 public abstract class Car extends Device {
-    private Double value;
+    public Double value;
 
     public static final Double MINIMAL_REFUEL = 5.0;
     public static final Double MAXIMUM_FUEL = 20.0;

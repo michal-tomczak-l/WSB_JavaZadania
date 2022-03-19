@@ -9,6 +9,7 @@ public abstract class Device implements Sellable {
     protected final String producer;
     protected final Integer yearOfProduction;
     protected boolean isTurnedOn;
+    public Double value;
 
     public Device(String model, String producer, Integer yearOfProduction) {
         this.model = model;

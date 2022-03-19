@@ -9,6 +9,13 @@ public class Phone extends Device {
     private static final String DEFAULT_SERVER_ADDRESS ="app.google.com";
     private static final String DEFAULT_VERSION = "3.0";
     private static final String DEFAULT_PROTOCOL = "https";
+    public OperatingSystem operatingSystem;
+
+
+    public enum OperatingSystem {
+        ANDROID,WINDOWS_MOBILE,IOS
+    }
+
 
 
     public Phone(String model, String producer, Integer yearOfProduction) {

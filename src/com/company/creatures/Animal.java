@@ -4,6 +4,11 @@ import com.company.Human;
 import com.company.Sellable;
 
 public abstract class Animal implements Sellable, Feedable {
+
+
+
+
+    private static final Double DEFAULT_COW_WEIGHT = 100.0;
     private static final Double DEFAULT_DOG_WEIGHT = 2.0;
     private static final Double DEFAULT_CAT_WEIGHT = 1.0;
     private static final Double DEFAULT_ANIMAL_WEIGHT = 1.5;
@@ -11,6 +16,7 @@ public abstract class Animal implements Sellable, Feedable {
     private Double weight;
     private Boolean isAlive;
     private String name;
+    public final FoodType foodType;
 
 
     public Animal(String species, String name) {
@@ -18,17 +24,24 @@ public abstract class Animal implements Sellable, Feedable {
         this.species = species;
         this.isAlive = true;
         if (species.equals("dog")) {
+            this.foodType = FoodType.ALL;
             this.weight = DEFAULT_DOG_WEIGHT;
         } else if (species.equals("cat")) {
+            this.foodType = FoodType.MEET;
             this.weight = DEFAULT_CAT_WEIGHT;
-        } else {
+        }
+        else if (species.equals("cow")) {
+            this.foodType = FoodType.CROPS;
+            this.weight = DEFAULT_COW_WEIGHT;
+        }else {
+            this.foodType = FoodType.ALL;
             this.weight = DEFAULT_ANIMAL_WEIGHT;
         }
 
     }
 
     public Double getWeight() {
-        return weight;
+        return this.weight;
     }
     public void setWeight(Double weight) {
         this.weight = weight;
@@ -51,14 +64,26 @@ public abstract class Animal implements Sellable, Feedable {
         }
     }
 
-    public void feed(Double foodWeight) {
-        if(this.weight > 0) {
-            weight += foodWeight;
-            System.out.println("Getting fat :)) ");
-        }
-        else
+    public void feed(Double foodWeight, FoodType foodType) {
+        if (this.weight > 0) {
+            this.weight += foodType.foodBodyRatio * foodWeight;
+            System.out.println("thx for food");
+
+        } else
             System.out.println("YOU CANT FEED DEAD ANIMAL......");
-    }
+        }
+
+
+
+        public void getFoodType (Double foodWeight, FoodType foodType) {
+            if (this.foodType != foodType)
+                System.out.println("Ough! Disgusting, gimme other food");
+            else {
+                this.weight += foodType.foodBodyRatio * foodWeight;
+                System.out.println("thx for food");
+            }
+        }
+
 
     public void takeForAWalk() {
             if (this.weight > 0) {

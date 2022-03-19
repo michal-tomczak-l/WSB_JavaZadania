@@ -8,11 +8,11 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class Human {
+    private static final int DEFAULT_NUMBER_OF_CARS = 3;
     public String firstName;
     public String lastName;
     public Animal pet;
-    private Car car;
-
+    public Car[] garage;
     private LocalDateTime lastDate;
     private Double salary;
     private Double prevSalary;
@@ -33,6 +33,7 @@ public class Human {
     Human(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.garage = new Car[DEFAULT_NUMBER_OF_CARS];
 
     }
 
@@ -62,21 +63,23 @@ public class Human {
 
     }
 
-    public Car getCar() {
-        return this.car;
+    public Car getCar(Integer parkingSpot) {
+        return garage[parkingSpot];
     }
 
-    public void setCar(Car car) {
-        if (salary > car.getValue()) {
-            System.out.println("Lets get it for cash");
-            this.car = car;
-        } else if (salary > car.getValue() / 2) {
-            System.out.println("Lets call to the bank, and get loan for the car");
-            this.car = car;
-        } else {
-            System.out.println("You are poor...");
+    public void setCar(Car car, Integer parkingSpot) {
+       this.garage[parkingSpot] = car;
 
         }
+
+    public Double vehicleValue() {
+        Double value = 0.0;
+        for (Car car : garage) {
+            if (car != null && car.value != null) {
+                value += car.value;
+            }
+        }
+        return value;
     }
 
     @Override
@@ -85,7 +88,7 @@ public class Human {
                 "firstName=" + firstName +
                 "lastName=" + lastName +
                 "pet=" + pet +
-                ", car=" + car +
+                ", cars=" + garage +
                 ", lastChecked=" + lastDate +
                 ", previousSalaryValue=" + prevSalary +
                 ", salary=" + salary +
