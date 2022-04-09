@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class Human {
-    private static final int DEFAULT_NUMBER_OF_CARS = 3;
+    private static final int DEFAULT_NUMBER_OF_CARS = 2;
     public String firstName;
     public String lastName;
     public Animal pet;
@@ -16,24 +16,30 @@ public class Human {
     private LocalDateTime lastDate;
     private Double salary;
     private Double prevSalary;
-    private Double cash;
+    public Double cash;
     private Device device;
+
     public Device getDevice() {
         return device;
     }
+
     public void setDevice(Device device) {
         this.device = device;
- }
+    }
+
+
     public Double getCash() {
         return cash;
- }
+    }
+
     public void setCash(double cash) {
         this.cash = cash;
- }
-    Human(String firstName, String lastName) {
+    }
+
+    Human(String firstName, String lastName, Integer garageSpots) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.garage = new Car[DEFAULT_NUMBER_OF_CARS];
+        this.garage = new Car[garageSpots];
 
     }
 
@@ -68,9 +74,13 @@ public class Human {
     }
 
     public void setCar(Car car, Integer parkingSpot) {
-       this.garage[parkingSpot] = car;
+        this.garage[parkingSpot] = car;
 
-        }
+    }
+
+
+
+
 
     public Double vehicleValue() {
         Double value = 0.0;
@@ -82,6 +92,42 @@ public class Human {
         return value;
     }
 
+    public boolean gotCar(Car car) {
+        boolean gotThisCar = false;
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == car) {
+                gotThisCar = true;
+                break;
+            }
+        }
+        return gotThisCar;
+    }
+
+    public boolean garageSpace() {
+        for (int i = 0; i < garage.length; i++) {
+            if (garage[i] == null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void soldCar(Car car) {
+        for (int i = 0; i < garage.length; i++) {
+            if (garage[i] == car) {
+                garage[i] = null;
+            }
+        }
+    }
+
+    public void boughtCar(Car car) {
+        for (int i = 0; i < garage.length; i++) {
+            if (garage[i] == null) {
+                garage[i] = car;
+                break;
+            }
+        }
+    }
     @Override
     public String toString() {
         return "Human{" +
