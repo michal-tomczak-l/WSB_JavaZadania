@@ -31,12 +31,20 @@ public class Main {
 
 
                 try {
-                        tesla.sell(jack, janusz, 600.0);
+                        tesla.sell(jack, janusz, 200.0);
                 } catch (Exception e) {
                         System.out.println("Drogo, drogo, można taniej panie?");
                         e.printStackTrace();
                 }
-
+                System.out.println("Number of sales: " + tesla.numberOfSales());
+                try {
+                        tesla.sell(janusz, jack, 500.0);
+                } catch (Exception e) {
+                        System.out.println("Drogo, drogo, można taniej panie?");
+                        e.printStackTrace();
+                }
+                System.out.println(tesla.owners.size());
+                System.out.println("Number of sales: " + tesla.numberOfSales());
 
         }
 }

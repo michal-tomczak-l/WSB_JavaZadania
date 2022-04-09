@@ -75,13 +75,9 @@ public class Human {
 
     public void setCar(Car car, Integer parkingSpot) {
         this.garage[parkingSpot] = car;
+        car.owners.add(this);
 
     }
-
-
-
-
-
     public Double vehicleValue() {
         Double value = 0.0;
         for (Car car : garage) {
