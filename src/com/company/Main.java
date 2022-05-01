@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.devices.Car;
-import com.company.devices.ElectricCar;
-import com.company.devices.LPG;
-import com.company.devices.Phone;
+import com.company.devices.*;
 import com.company.creatures.Animal;
 import com.company.creatures.FoodType;
 
@@ -46,6 +43,14 @@ public class Main {
                 System.out.println(tesla.owners.size());
                 System.out.println("Number of sales: " + tesla.numberOfSales());
 
+
+                Phone xiaomi = new Phone("Mi10","Xiaomi",2022,jack);
+                Application facebook = new Application ("facebook", "2.0",0.0);
+                Application twitter = new Application ("twitter","1.0", 5000.0);
+                xiaomi.checkInstalledApp(facebook);
+                xiaomi.installBoughtApp(facebook);
+                xiaomi.checkInstalledApp(facebook);
+                xiaomi.installBoughtApp(twitter);
         }
 }
 
